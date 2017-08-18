@@ -1,18 +1,42 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content>
+  <ion-slides pager (ionSlideDidChange)="slideChanged()" (ionSlideDrag)="slideMoved()">
+    <ion-slide>
+      <div class="diag" style="background: url('assets/whitebg.svg') no-repeat">
+        <ion-icon ios="ios-analytics" md="md-analytics" color="primary"  [@bounce]='state' (@bounce.done)="animationDone()"></ion-icon>
+      </div>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+      <!--Empty div-->
+      <div [@bounce]='state'>
+        <h2>Hello there</h2>
+        <p>Welcome to my app thank you for checking this app</p>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="diag" style="background: url('assets/whitebg.svg') no-repeat">
+        <ion-icon ios="ios-analytics" md="md-trophy" color="primary" [@bounce]='state'></ion-icon>
+      </div>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+      <!--Empty div-->
+      <div [@bounce]='state'>
+        <h2>Second Page</h2>
+        <p>Welcome to my app thank you for checking this app</p>
+
+      </div>
+    </ion-slide>
+    <ion-slide>
+
+      <div class="diag" style="background: url('assets/whitebg.svg') no-repeat">
+        <ion-icon ios="ios-analytics" md="md-chatboxes" color="primary" [@bounce]='state'></ion-icon>
+      </div>
+
+      <!--Empty div-->
+      <div [@bounce]='state'>
+        <h2>Third page</h2>
+        <p>Welcome to my app thank you for checking this app</p>
+
+      </div>
+    </ion-slide>
+  </ion-slides>
+  <button (click)="skip()" id="skip">{{ skipMsg }}</button>
 </ion-content>
